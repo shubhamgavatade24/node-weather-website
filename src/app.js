@@ -5,6 +5,8 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast') 
 
 const app = express()
+const port = process.env.PORT || 3000
+// process.env.PORT is for heroku to set up the port number
 
 // define paths for express config
 const publicDirectoryPath = path.join(__dirname ,'../public')
@@ -103,6 +105,6 @@ app.get('*', (req,res) => {
 })
 
 // callback function is optional in listen  ??
-app.listen(3000, () =>{
-    console.log('Server is up on port 3000.')
+app.listen(port, () =>{
+    console.log('Server is up on port '+ port )
 })
